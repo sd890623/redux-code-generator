@@ -7,25 +7,25 @@ First, install [Yeoman](http://yeoman.io) and generator-redux-code using [npm](h
 
 ```bash
 npm install -g yo
-npm install -g generator-redux-code
 ```
-
-Then generate your new project:
+Go to the git repository and 
+```bash
+npm link
+```
+Then navigate to your target project repo and generate code with:
 
 ```bash
 yo redux-code
 ```
 
+##Features
+At present it only generates modules, failing its name of "redux code generator". Will expand its functionality in the future.
 ## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+Code generator built with Yeoman scaffolding framework.
 
 ## License
 
-Apache-2.0 © [daniel sun]()
+GPL © [daniel sun]()
 
 
 [npm-image]: https://badge.fury.io/js/generator-redux-code.svg
