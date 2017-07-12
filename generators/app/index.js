@@ -107,7 +107,11 @@ module.exports = class extends Generator {
       // SCSS
       this.templatePath('_specs_/ObjectState.spec.js'),
       this.destinationPath('template/' + this.convertName('upperCamel') + '/_specs_/' + this.convertName('upperCamel') + 'State.spec.js'),
-      {name: this.convertName('upperCamel')}
+      {
+        upperCamel: this.convertName('upperCamel'),
+        lowerCamel: this.convertName('lowerCamel'),
+        upperUnderscore: this.convertName('UPPERUnderscore')
+      }
     );
     this.fs.copyTpl(
       // SCSS

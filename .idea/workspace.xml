@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3d111d8-e6aa-4317-a0ff-65e968ea0b23" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/index.js" afterPath="$PROJECT_DIR$/generators/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/Object.scss" afterPath="$PROJECT_DIR$/generators/app/templates/Object.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectContainer.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectState.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectView.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/OtherSnippets.js" afterPath="$PROJECT_DIR$/generators/app/templates/OtherSnippets.js" />
-    </list>
+    <list default="true" id="c3d111d8-e6aa-4317-a0ff-65e968ea0b23" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -319,12 +311,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499758726878</updated>
-      <workItem from="1499758728540" duration="6908000" />
+      <workItem from="1499758728540" duration="7022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6908000" />
+    <option name="totallyTimeSpent" value="7022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1374" y="-8" width="1382" height="784" extended-state="6" />

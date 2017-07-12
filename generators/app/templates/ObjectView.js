@@ -27,7 +27,7 @@ class <%= upperCamel %>View extends Component {
 <%= upperCamel %>View.propTypes = {
   t: PropTypes.func.isRequired,
   get<%= upperCamel %>: PropTypes.func.isRequired,
-  <%= upperCamel %>: PropTypes.string.isRequired
+  <%= lowerCamel %>: PropTypes.string.isRequired
 };
 
 export default translate(['common'], { wait: true })(<%= upperCamel %>View);

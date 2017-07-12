@@ -11,6 +11,7 @@ const initialState = Map({
 
 // Action
 const RESET_<%= upperUnderscore %> = '<%= upperCamel %>State/RESET_<%= upperUnderscore %>';
+const GET_<%= upperUnderscore %>_SUCCESS = '<%= upperCamel %>State/GET_<%= upperUnderscore %>_SUCCESS';
 
 // Action creators
 export function reset() {
@@ -21,7 +22,7 @@ export function get<%= upperCamel %>Success(data) {
   return { type: GET_<%= upperUnderscore %>_SUCCESS, payload: data };
 }
 
-export get<%= upperCamel %>() {
+export function get<%= upperCamel %>() {
   return (dispatch) => {
     api.get('url', JSON_TYPE)
       .then((response) => {
@@ -33,8 +34,8 @@ export get<%= upperCamel %>() {
         }
       })
       .catch((error) => {
-         dispatch(showGeneralErrorModal());
-         console.warn('Failed getting <%= lowerCamel %>, critical error', error);
+        dispatch(showGeneralErrorModal());
+        console.warn('Failed getting <%= lowerCamel %>, critical error', error);
       });
   };
 }
@@ -45,7 +46,7 @@ export default function <%= upperCamel %>StateReducer(state = initialState, acti
     case RESET_<%= upperUnderscore %>:
       return initialState;
     case GET_<%= upperUnderscore %>_SUCCESS:
-      return  state
+      return state
         .set('<%= lowerCamel %>',action.payload);
     default:
       return state;
