@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
-import <%= name %>View from './<%= name %>View';
+import <%= upperCamel %>View from './<%= upperCamel %>View';
 import {
-
-} from './<%= name %>State';
+  get<%= upperCamel %>
+} from './<%= upperCamel %>State';
 
 export default connect(
   state => ({
-}),
-dispatch => ({
-})
-)(<%= name %>View);
+    <%= lowerCamel %>: state.get('<%= lowerCamel %>').get('<%= lowerCamel %>')
+  }),
+  dispatch => ({
+    get<%= upperCamel %>() {
+      dispatch(get<%= upperCamel %>());
+    }
+  })
+)(<%= upperCamel %>View);

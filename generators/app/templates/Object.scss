@@ -6,3 +6,9 @@
 #<%= name %> {
 
 }
+
+@media (max-width: $screen-sm) {
+  #<%= name %> {
+
+  }
+}

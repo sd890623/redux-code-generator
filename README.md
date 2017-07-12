@@ -20,6 +20,10 @@ yo redux-code
 
 ##Features
 At present it only generates modules, failing its name of "redux code generator". Will expand its functionality in the future.
+
+## Notes
+Where it needs tweaks after scaffolding:
+1. View: change 'common' to the variable used in localization file.
 ## Getting To Know Yeoman
 Code generator built with Yeoman scaffolding framework.
 
