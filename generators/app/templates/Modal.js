@@ -91,7 +91,7 @@ class Edit<%= upperCamel %>Panel extends Component {
             <i className="fa fa-check" />{t('common:generalInfo.ok')}
           </Button>
           <Button
-            className="btn btn-default pull-right btn-cancel"
+            className="pull-right"
             onClick={this.props.close<%= upperCamel %>EditPanel}
           >
             {t('common:generalInfo.cancel')}
@@ -104,8 +104,8 @@ class Edit<%= upperCamel %>Panel extends Component {
 
 Edit<%= upperCamel %>Panel.propTypes = {
   t: PropTypes.func.isRequired,
-  close<%= upperCamel %>EditPanel: PropTypes.func.isRequired,
-  showEdit<%= upperCamel %>Panel: PropTypes.bool.isRequired
+  showEdit<%= upperCamel %>Panel: PropTypes.bool.isRequired,
+  close<%= upperCamel %>EditPanel: PropTypes.func.isRequired
 };
 
 export default translate(['common'], { wait: true })(Edit<%= upperCamel %>Panel);
@@ -122,6 +122,6 @@ import Edit<%= upperCamel %>Panel from './Edit<%= upperCamel %>Panel';
 buttonRightClick={() => this.props.open<%= upperCamel %>EditPanel(id)}
 buttonLeftClick={() => this.props.initializeConfirmModalShow(this.props.t('account:myAccountUsers.deleteReminder'), () => this.props.deleteFile(file.raw.id))}
 
-  closeSensorsEditPanel: PropTypes.func.isRequired,
   showEditSensorsPanel: PropTypes.bool.isRequired,
+  closeSensorsEditPanel: PropTypes.func.isRequired,
   openSensorsEditPanel: PropTypes.func.isRequired,
