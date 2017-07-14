@@ -6,7 +6,8 @@ import {
 
 export default connect(
   state => ({
-    <%= lowerCamel %>: state.get('<%= lowerCamel %>').get('<%= lowerCamel %>')
+    <%= lowerCamel %>: state.get('<%= lowerCamel %>').get('<%= lowerCamel %>'),
+    loading: state.get('<%= lowerCamel %>').get('loading')
   }),
   dispatch => ({
     get<%= upperCamel %>() {
