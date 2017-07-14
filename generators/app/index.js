@@ -19,6 +19,13 @@ module.exports = class extends Generator {
       name: 'objectName',
       message: 'Choose an object name? must be lowercase with space',
       default: 'object alpha'
+    },
+    {
+      type: 'list',
+      name: 'mode',
+      message: 'select mode to generate code',
+      choices: ['module', 'modal'],
+      default: 'module'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -69,60 +76,77 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('Object.scss'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + '.scss'),
-      {name: this.convertName('slash')}
-    );
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('ObjectContainer.js'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Container.js'),
-      {
-        lowerCamel: this.convertName('lowerCamel'),
-        upperCamel: this.convertName('upperCamel')
+    switch (this.props.mode) {
+      case 'modal': {
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('Modal.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Modal.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel')
+          }
+        );
+        break;
       }
-    );
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('ObjectState.js'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'State.js'),
-      {
-        lowerCamel: this.convertName('lowerCamel'),
-        upperCamel: this.convertName('upperCamel'),
-        upperUnderscore: this.convertName('UPPERUnderscore')
+      case 'module': {
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('Object.scss'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + '.scss'),
+          {name: this.convertName('slash')}
+        );
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('ObjectContainer.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Container.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel')
+          }
+        );
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('ObjectState.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'State.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel'),
+            upperUnderscore: this.convertName('UPPERUnderscore')
+          }
+        );
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('ObjectView.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'View.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel')
+          }
+        );
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('_specs_/ObjectState.spec.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/_specs_/' + this.convertName('upperCamel') + 'State.spec.js'),
+          {
+            upperCamel: this.convertName('upperCamel'),
+            lowerCamel: this.convertName('lowerCamel'),
+            upperUnderscore: this.convertName('UPPERUnderscore')
+          }
+        );
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('OtherSnippets.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel'),
+            lowerSlash: this.convertName('slash')
+          }
+        );
+        break;
       }
-    );
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('ObjectView.js'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'View.js'),
-      {
-        lowerCamel: this.convertName('lowerCamel'),
-        upperCamel: this.convertName('upperCamel')
-      }
-    );
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('_specs_/ObjectState.spec.js'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/_specs_/' + this.convertName('upperCamel') + 'State.spec.js'),
-      {
-        upperCamel: this.convertName('upperCamel'),
-        lowerCamel: this.convertName('lowerCamel'),
-        upperUnderscore: this.convertName('UPPERUnderscore')
-      }
-    );
-    this.fs.copyTpl(
-      // SCSS
-      this.templatePath('OtherSnippets.js'),
-      this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
-      {
-        lowerCamel: this.convertName('lowerCamel'),
-        upperCamel: this.convertName('upperCamel'),
-        lowerSlash: this.convertName('slash')
-      }
-    );
+    }
   }
 
   install() {
