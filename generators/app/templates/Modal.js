@@ -1,23 +1,23 @@
 // Template code for popup modal
 // In state.js
 const initialState = Map({
-  showEdit<%= upperCamel %>Panel: false
+  show<%= upperCamel %>Panel: false
 })
 
-const CLOSE_EDIT_PANEL = '<%= upperCamel %>State/CLOSE_EDIT_PANEL';
-const TOGGLE_EDIT_PANEL = '<%= upperCamel %>State/TOGGLE_EDIT_PANEL';
+const CLOSE_PANEL = '<%= upperCamel %>State/CLOSE_EDIT_PANEL';
+const TOGGLE_PANEL = '<%= upperCamel %>State/TOGGLE_EDIT_PANEL';
 
-export function close<%= upperCamel %>EditPanel() {
-  return { type: CLOSE_EDIT_PANEL };
+export function close<%= upperCamel %>Panel() {
+  return { type: CLOSE_PANEL };
 }
 
-export function toggle<%= upperCamel %>EditPanel() {
-  return { type: TOGGLE_EDIT_PANEL };
+export function toggleEdit<%= upperCamel %>Panel() {
+  return { type: TOGGLE_PANEL };
 }
 
-export function open<%= upperCamel %>EditPanel(id) {
+export function openEdit<%= upperCamel %>Panel(id) {
   return (dispatch) => {
-    dispatch(toggle<%= upperCamel %>EditPanel());
+    dispatch(toggleEdit<%= upperCamel %>Panel());
   };
 }
 
@@ -33,8 +33,8 @@ case TOGGLE_EDIT_PANEL:
 import { connect } from 'react-redux';
 import <%= upperCamel %>View from './<%= upperCamel %>View';
 import {
-  close<%= upperCamel %>EditPanel,
-  open<%= upperCamel %>EditPanel
+  closeEdit<%= upperCamel %>Panel,
+  openEdit<%= upperCamel %>Panel
 } from './<%= upperCamel %>State';
 
 export default connect(
@@ -42,11 +42,11 @@ export default connect(
     showEdit<%= upperCamel %>Panel: state.get('<%= lowerCamel %>').get('showEdit<%= upperCamel %>Panel')
   }),
   dispatch => ({
-    close<%= upperCamel %>EditPanel() {
-      dispatch(close<%= upperCamel %>EditPanel());
+    closeEdit<%= upperCamel %>Panel() {
+      dispatch(closeEdit<%= upperCamel %>Panel());
     },
-    open<%= upperCamel %>EditPanel(id) {
-      dispatch(open<%= upperCamel %>EditPanel(id));
+    openEdit<%= upperCamel %>Panel(id) {
+      dispatch(openEdit<%= upperCamel %>Panel(id));
     }
   })
 )(<%= upperCamel %>View);
@@ -78,7 +78,7 @@ class Edit<%= upperCamel %>Panel extends Component {
       <Modal
         id="edit-<%= lowerCamel %>-panel"
         show={this.props.showEdit<%= upperCamel %>Panel}
-        onHide={this.props.close<%= upperCamel %>EditPanel}
+        onHide={this.props.closeEdit<%= upperCamel %>Panel}
       >
         <Modal.Header closeButton>
           <Modal.Title>{t('object:<%= lowerCamel %>.edit<%= upperCamel %>Panel.edit<%= upperCamel %>')}</Modal.Title>
@@ -92,7 +92,7 @@ class Edit<%= upperCamel %>Panel extends Component {
           </Button>
           <Button
             className="pull-right"
-            onClick={this.props.close<%= upperCamel %>EditPanel}
+            onClick={this.props.closeEdit<%= upperCamel %>Panel}
           >
             {t('common:generalInfo.cancel')}
           </Button>
@@ -105,7 +105,7 @@ class Edit<%= upperCamel %>Panel extends Component {
 Edit<%= upperCamel %>Panel.propTypes = {
   t: PropTypes.func.isRequired,
   showEdit<%= upperCamel %>Panel: PropTypes.bool.isRequired,
-  close<%= upperCamel %>EditPanel: PropTypes.func.isRequired
+  closeEdit<%= upperCamel %>Panel: PropTypes.func.isRequired
 };
 
 export default translate(['common'], { wait: true })(Edit<%= upperCamel %>Panel);
@@ -119,9 +119,9 @@ import Edit<%= upperCamel %>Panel from './Edit<%= upperCamel %>Panel';
 	closeEdit<%= upperCamel %>Panel={this.props.closeEdit<%= upperCamel %>Panel}
 />
 
-buttonRightClick={() => this.props.open<%= upperCamel %>EditPanel(id)}
+buttonRightClick={() => this.props.openEdit<%= upperCamel %>Panel(id)}
 buttonLeftClick={() => this.props.initializeConfirmModalShow(this.props.t('account:myAccountUsers.deleteReminder'), () => this.props.deleteFile(file.raw.id))}
 
   showEditSensorsPanel: PropTypes.bool.isRequired,
-  closeSensorsEditPanel: PropTypes.func.isRequired,
-  openSensorsEditPanel: PropTypes.func.isRequired,
+  closeEditSensorsPanel: PropTypes.func.isRequired,
+  openEditSensorsPanel: PropTypes.func.isRequired,
