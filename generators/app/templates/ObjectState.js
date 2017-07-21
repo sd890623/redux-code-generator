@@ -45,6 +45,7 @@ export function get<%= upperCamel %>() {
           dispatch(get<%= upperCamel %>Success(response));
           dispatch(toggle<%= upperCamel %>Loading());
         }
+        return null;
       })
       .catch((error) => {
         dispatch(showGeneralErrorModal());
@@ -60,7 +61,7 @@ export default function <%= upperCamel %>StateReducer(state = initialState, acti
       return initialState;
     case GET_<%= upperUnderscore %>_SUCCESS:
       return state
-        .set('<%= lowerCamel %>',action.payload);
+        .set('<%= lowerCamel %>', action.payload);
     case SET_LOADING:
       return state
         .set('loading', true);
