@@ -76,7 +76,7 @@ class Edit<%= upperCamel %>Panel extends Component {
     const { t } = this.props;
     return (
       <Modal
-        id="edit-<%= lowerCamel %>-panel"
+        id="edit-<%= lowerSlash %>-panel"
         show={this.props.showEdit<%= upperCamel %>Panel}
         onHide={this.props.closeEdit<%= upperCamel %>Panel}
       >
@@ -122,6 +122,6 @@ import Edit<%= upperCamel %>Panel from './Edit<%= upperCamel %>Panel';
 buttonRightClick={() => this.props.openEdit<%= upperCamel %>Panel(id)}
 buttonLeftClick={() => this.props.initializeConfirmModalShow(this.props.t('account:myAccountUsers.deleteReminder'), () => this.props.deleteFile(file.raw.id))}
 
-  showEditSensorsPanel: PropTypes.bool.isRequired,
-  closeEditSensorsPanel: PropTypes.func.isRequired,
-  openEditSensorsPanel: PropTypes.func.isRequired,
+  showEdit<%= upperCamel %>Panel: PropTypes.bool.isRequired,
+  openEdit<%= upperCamel %>Panel: PropTypes.func.isRequired,
+  closeEdit<%= upperCamel %>Panel: PropTypes.func.isRequired,

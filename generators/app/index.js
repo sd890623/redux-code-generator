@@ -84,7 +84,8 @@ module.exports = class extends Generator {
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Modal.js'),
           {
             lowerCamel: this.convertName('lowerCamel'),
-            upperCamel: this.convertName('upperCamel')
+            upperCamel: this.convertName('upperCamel'),
+            lowerSlash: this.convertName('slash')
           }
         );
         break;

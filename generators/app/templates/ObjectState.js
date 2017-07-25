@@ -6,7 +6,7 @@ import { JSON_TYPE, FORM_TYPE } from '../../utils/api';
 
 // Initial state
 const initialState = Map({
-  <%= lowerCamel %>: '',
+  <%= lowerCamel %>: [],
   loading: false
 });
 
