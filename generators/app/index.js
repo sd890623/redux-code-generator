@@ -81,7 +81,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           // SCSS
           this.templatePath('Modal.js'),
-          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Modal.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Panel.js'),
           {
             lowerCamel: this.convertName('lowerCamel'),
             upperCamel: this.convertName('upperCamel'),

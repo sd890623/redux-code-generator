@@ -67,7 +67,7 @@ export default function <%= upperCamel %>StateReducer(state = initialState, acti
         .set('loading', true);
     case TOGGLE_LOADING:
       return state
-        .set('loading', !this.state.get('loading'));
+        .set('loading', !state.get('loading'));
     default:
       return state;
   }

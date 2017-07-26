@@ -4,15 +4,15 @@ const initialState = Map({
   show<%= upperCamel %>Panel: false
 })
 
-const CLOSE_PANEL = '<%= upperCamel %>State/CLOSE_EDIT_PANEL';
-const TOGGLE_PANEL = '<%= upperCamel %>State/TOGGLE_EDIT_PANEL';
+const CLOSE_EDIT_PANEL = '<%= upperCamel %>State/CLOSE_EDIT_PANEL';
+const TOGGLE_EDIT_PANEL = '<%= upperCamel %>State/TOGGLE_EDIT_PANEL';
 
-export function close<%= upperCamel %>Panel() {
-  return { type: CLOSE_PANEL };
+export function closeEdit<%= upperCamel %>Panel() {
+  return { type: CLOSE_EDIT_PANEL };
 }
 
 export function toggleEdit<%= upperCamel %>Panel() {
-  return { type: TOGGLE_PANEL };
+  return { type: TOGGLE_EDIT_PANEL };
 }
 
 export function openEdit<%= upperCamel %>Panel(id) {
@@ -36,6 +36,7 @@ import {
   closeEdit<%= upperCamel %>Panel,
   openEdit<%= upperCamel %>Panel
 } from './<%= upperCamel %>State';
+import { initializeConfirmModalShow } from '../GeneralConfirmModal/GeneralConfirmModalState';
 
 export default connect(
   state => ({
@@ -47,6 +48,9 @@ export default connect(
     },
     openEdit<%= upperCamel %>Panel(id) {
       dispatch(openEdit<%= upperCamel %>Panel(id));
+    },
+    initializeConfirmModalShow(msg, func) {
+      dispatch(initializeConfirmModalShow(msg, func));
     }
   })
 )(<%= upperCamel %>View);
