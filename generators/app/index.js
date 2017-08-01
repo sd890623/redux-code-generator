@@ -24,8 +24,17 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'mode',
       message: 'select mode to generate code',
-      choices: ['module', 'modal'],
+      choices: ['module', 'modal', 'loading'],
       default: 'module'
+    },
+    {
+      type: 'input',
+      name: 'loadingObject',
+      message: 'Choose an object name for loading? must be lowercase with space',
+      default: 'upload loading',
+      when: function (prompt) {
+        return (prompt.mode === 'loading');
+      }
     }];
 
     return this.prompt(prompts).then(props => {
@@ -34,8 +43,8 @@ module.exports = class extends Generator {
     });
   }
 
-  convertName(option) {
-    var split = this.props.objectName.split(' ');
+  convertName(option, name='objectName') {
+    var split = this.props[name].split(' ');
     var result = '';
     for (var i = 0; i < split.length; i++) {
       switch (option) {
@@ -77,6 +86,22 @@ module.exports = class extends Generator {
 
   writing() {
     switch (this.props.mode) {
+      case 'loading': {
+        this.fs.copyTpl(
+          // SCSS
+          this.templatePath('Loading.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Loading.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel'),
+            loadingLowerCamel: this.convertName('lowerCamel', 'loadingObject'),
+            loadingUpperUnderscore: this.convertName('UPPERUnderscore', 'loadingObject'),
+            loadingUpperCamel: this.convertName('upperCamel', 'loadingObject'),
+
+          }
+        );
+        break;
+      }      
       case 'modal': {
         this.fs.copyTpl(
           // SCSS
