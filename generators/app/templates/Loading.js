@@ -14,6 +14,8 @@ export function toggle<%= loadingUpperCamel %>() {
   return { type: TOGGLE_<%= loadingUpperUnderscore %> };
 }
 
+  dispatch(toggle<%= loadingUpperCamel %>());
+
 export default function <%= upperCamel %>StateReducer(state = initialState, action = {}) {
   switch (action.type) {
 	case SET_<%= loadingUpperUnderscore %>:
@@ -25,6 +27,12 @@ export default function <%= upperCamel %>StateReducer(state = initialState, acti
   }
 }
 
+// In <%= upperCamel %>State.spec.js
+it('should toggle <%= loadingLowerCamel %>', () => {
+  const [modifiedState] = dispatch(initialState, <%= upperCamel %>Actions.toggle<%= loadingUpperCamel %>());
+  expect(modifiedState.get('<%= lowerCamel %>').get('<%= loadingLowerCamel %>')).toBe(!initialState.get('<%= lowerCamel %>').get('<%= loadingLowerCamel %>'));
+});
+
 // In <%= upperCamel %>Container.js
 export default connect(
   state => ({
@@ -35,6 +43,16 @@ export default connect(
 )(<%= upperCamel %>View);
 
 // In <%= upperCamel %>view.js
+
+  <Button
+    bsStyle="success"
+    className={`pull-right ${this.props.<%= loadingLowerCamel %> ? 'disabled' : ''}`}
+    onClick={() => this.updateObject()}
+  >
+    <i className={`fa ${this.props.<%= loadingLowerCamel %> ? 'fa-spin fa-spinner' : 'fa-check'}`} />
+    {this.props.<%= loadingLowerCamel %> ? t('common:generalInfo.saving') : t('common:generalInfo.ok')}
+  </Button>
+
   <SomeComponent
 	<%= loadingLowerCamel %>={this.props.<%= loadingLowerCamel %>}
   />
