@@ -17,7 +17,7 @@ module.exports = class extends Generator {
     const prompts = [{
       type: 'input',
       name: 'objectName',
-      message: 'Choose an object name? must be lowercase with space',
+      message: 'Choose an state key name? must be lowercase with space',
       default: 'object alpha'
     },
     {
@@ -29,11 +29,11 @@ module.exports = class extends Generator {
     },
     {
       type: 'input',
-      name: 'loadingObject',
-      message: 'Choose an object name for loading? must be lowercase with space',
+      name: 'secondObject',
+      message: 'Choose an name for the object ? must be lowercase with space',
       default: 'upload loading',
       when: function (prompt) {
-        return (prompt.mode === 'loading');
+        return (prompt.mode === 'loading' || prompt.mode === 'modal' );
       }
     }];
 
@@ -94,10 +94,9 @@ module.exports = class extends Generator {
           {
             lowerCamel: this.convertName('lowerCamel'),
             upperCamel: this.convertName('upperCamel'),
-            loadingLowerCamel: this.convertName('lowerCamel', 'loadingObject'),
-            loadingUpperUnderscore: this.convertName('UPPERUnderscore', 'loadingObject'),
-            loadingUpperCamel: this.convertName('upperCamel', 'loadingObject'),
-
+            loadingLowerCamel: this.convertName('lowerCamel', 'secondObject'),
+            loadingUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+            loadingUpperCamel: this.convertName('upperCamel', 'secondObject')
           }
         );
         break;
@@ -106,11 +105,14 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           // SCSS
           this.templatePath('Modal.js'),
-          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Panel.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Modal.js'),
           {
             lowerCamel: this.convertName('lowerCamel'),
             upperCamel: this.convertName('upperCamel'),
-            lowerSlash: this.convertName('slash')
+            lowerSlash: this.convertName('slash'),
+            objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
+            objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+            objectLowerSlash: this.convertName('slash', 'secondObject')
           }
         );
         break;
