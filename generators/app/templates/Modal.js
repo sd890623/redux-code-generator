@@ -85,7 +85,7 @@ class <%= objectUpperCamel %>Modal extends Component {
         onHide={this.props.close<%= objectUpperCamel %>Modal}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{t('object:<%= lowerCamel %>.<%= objectUpperCamel %>.title')}</Modal.Title>
+          <Modal.Title>{t('object:<%= lowerCamel %>.<%= objectLowerCamel %>.title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {this.renderContent()}
@@ -127,6 +127,6 @@ buttonRightClick={() => this.props.open<%= objectUpperCamel %>Modal(id)}
 buttonLeftClick={() => this.props.initializeConfirmModalShow(this.props.t('account:myAccountUsers.deleteReminder'), () => this.props.deleteFile(file.raw.id))}
 
   show<%= objectUpperCamel %>Modal: PropTypes.bool.isRequired,
-  toggle<%= objectUpperCamel %>Modal: PropTypes.bool.isRequired,
+  toggle<%= objectUpperCamel %>Modal: PropTypes.func.isRequired,
   open<%= objectUpperCamel %>Modal: PropTypes.func.isRequired,
   close<%= objectUpperCamel %>Modal: PropTypes.func.isRequired,

@@ -110,6 +110,7 @@ module.exports = class extends Generator {
             lowerCamel: this.convertName('lowerCamel'),
             upperCamel: this.convertName('upperCamel'),
             lowerSlash: this.convertName('slash'),
+            objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
             objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
             objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
             objectLowerSlash: this.convertName('slash', 'secondObject')
