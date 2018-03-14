@@ -24,7 +24,7 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'mode',
       message: 'select mode to generate code',
-      choices: ['module', 'modal', 'loading'],
+      choices: ['module', 'modal', 'loading', 'generalProp'],
       default: 'module'
     },
     {
@@ -33,10 +33,19 @@ module.exports = class extends Generator {
       message: 'Choose an name for the object ? must be lowercase with space',
       default: 'upload loading',
       when: function (prompt) {
-        return (prompt.mode === 'loading' || prompt.mode === 'modal' );
+        return (prompt.mode === 'loading' || prompt.mode === 'modal' || prompt.mode === 'generalProp');
+      }
+    },
+    {
+      type: 'list',
+      name: 'type',
+      message: 'select type of variable',
+      choices: ['string', 'int', 'bool'],
+      default: 'string',
+      when: function (prompt) {
+        return (prompt.mode === 'generalProp');
       }
     }];
-
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
@@ -84,11 +93,23 @@ module.exports = class extends Generator {
     return result;
   }
 
+  findDefaultForType(type) {
+    switch (type) {
+      case 'string':
+        return '\'\'';
+      case 'int':
+        return '0';
+      case 'bool':
+        return 'false';
+      default:
+        return '\'\'';
+    }
+  }
+
   writing() {
     switch (this.props.mode) {
       case 'loading': {
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('Loading.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Loading.js'),
           {
@@ -103,7 +124,6 @@ module.exports = class extends Generator {
       }      
       case 'modal': {
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('Modal.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Modal.js'),
           {
@@ -120,13 +140,11 @@ module.exports = class extends Generator {
       }
       case 'module': {
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('Object.scss'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + '.scss'),
           {name: this.convertName('slash')}
         );
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('ObjectContainer.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'Container.js'),
           {
@@ -135,7 +153,6 @@ module.exports = class extends Generator {
           }
         );
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('ObjectState.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'State.js'),
           {
@@ -145,7 +162,6 @@ module.exports = class extends Generator {
           }
         );
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('ObjectView.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + this.convertName('upperCamel') + 'View.js'),
           {
@@ -154,7 +170,6 @@ module.exports = class extends Generator {
           }
         );
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('_specs_/ObjectState.spec.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/_specs_/' + this.convertName('upperCamel') + 'State.spec.js'),
           {
@@ -164,7 +179,6 @@ module.exports = class extends Generator {
           }
         );
         this.fs.copyTpl(
-          // SCSS
           this.templatePath('OtherSnippets.js'),
           this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
           {
@@ -174,6 +188,25 @@ module.exports = class extends Generator {
           }
         );
         break;
+      }
+      case 'generalProp': {
+        this.fs.copyTpl(
+          this.templatePath('generalProp.js'),
+          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
+          {
+            lowerCamel: this.convertName('lowerCamel'),
+            upperCamel: this.convertName('upperCamel'),
+            upperUnderscore: this.convertName('UPPERUnderscore'),
+            objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
+            objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
+            objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+            objectLowerSlash: this.convertName('slash', 'secondObject'),
+            typeLower: this.convertName('lowerCamel', 'type'),
+            typeUpperCamel: this.convertName('upperCamel', 'type'),
+            defaultValue: this.findDefaultForType(this.props.type),
+            type: this.props.type
+          }
+        );
       }
     }
   }
