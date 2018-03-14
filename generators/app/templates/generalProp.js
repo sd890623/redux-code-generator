@@ -4,7 +4,6 @@ const initialState = Map({
   <%= objectLowerCamel %>: <%= defaultValue %>
 })
 
-export const <%= objectUpperUnderscore %> = '<%= upperCamel %>State/<%= objectUpperUnderscore %>';
 export const SET_<%= objectUpperUnderscore %> = '<%= upperCamel %>State/SET_<%= objectUpperUnderscore %>';
 
 export function set<%= objectUpperCamel %>(value) {
