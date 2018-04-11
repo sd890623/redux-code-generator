@@ -40,7 +40,7 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'type',
       message: 'select type of variable',
-      choices: ['string', 'int', 'bool'],
+      choices: ['string', 'int', 'bool', 'func'],
       default: 'string',
       when: function (prompt) {
         return (prompt.mode === 'generalProp');
@@ -101,6 +101,8 @@ module.exports = class extends Generator {
         return '0';
       case 'bool':
         return 'false';
+      case 'func':
+        return '() =\> null';
       default:
         return '\'\'';
     }
