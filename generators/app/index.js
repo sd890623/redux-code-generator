@@ -40,7 +40,7 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'type',
       message: 'select type of variable',
-      choices: ['string', 'int', 'bool', 'func'],
+      choices: ['string', 'int', 'bool', 'func', 'non-ser-func'],
       default: 'string',
       when: function (prompt) {
         return (prompt.mode === 'generalProp');
@@ -192,23 +192,43 @@ module.exports = class extends Generator {
         break;
       }
       case 'generalProp': {
-        this.fs.copyTpl(
-          this.templatePath('generalProp.js'),
-          this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
-          {
-            lowerCamel: this.convertName('lowerCamel'),
-            upperCamel: this.convertName('upperCamel'),
-            upperUnderscore: this.convertName('UPPERUnderscore'),
-            objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
-            objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
-            objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
-            objectLowerSlash: this.convertName('slash', 'secondObject'),
-            typeLower: this.convertName('lowerCamel', 'type'),
-            typeUpperCamel: this.convertName('upperCamel', 'type'),
-            defaultValue: this.findDefaultForType(this.props.type),
-            type: this.props.type
-          }
-        );
+        if (this.props.type === 'non-ser-func') {
+          this.fs.copyTpl(
+            this.templatePath('generalPropSpecialFunc.js'),
+            this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
+            {
+              lowerCamel: this.convertName('lowerCamel'),
+              upperCamel: this.convertName('upperCamel'),
+              upperUnderscore: this.convertName('UPPERUnderscore'),
+              objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
+              objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
+              objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+              objectLowerSlash: this.convertName('slash', 'secondObject'),
+              typeLower: this.convertName('lowerCamel', 'type'),
+              typeUpperCamel: this.convertName('upperCamel', 'type'),
+              defaultValue: this.findDefaultForType(this.props.type),
+              type: this.props.type
+            }
+          );
+        } else {
+          this.fs.copyTpl(
+            this.templatePath('generalProp.js'),
+            this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
+            {
+              lowerCamel: this.convertName('lowerCamel'),
+              upperCamel: this.convertName('upperCamel'),
+              upperUnderscore: this.convertName('UPPERUnderscore'),
+              objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
+              objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
+              objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+              objectLowerSlash: this.convertName('slash', 'secondObject'),
+              typeLower: this.convertName('lowerCamel', 'type'),
+              typeUpperCamel: this.convertName('upperCamel', 'type'),
+              defaultValue: this.findDefaultForType(this.props.type),
+              type: this.props.type
+            }
+          );
+        }
       }
     }
   }
