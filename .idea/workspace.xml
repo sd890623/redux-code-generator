@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3d111d8-e6aa-4317-a0ff-65e968ea0b23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/mutationRule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.editorconfig" afterPath="$PROJECT_DIR$/.editorconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintignore" afterPath="$PROJECT_DIR$/.eslintignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.yo-rc.json" afterPath="$PROJECT_DIR$/.yo-rc.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__tests__/app.js" afterPath="$PROJECT_DIR$/__tests__/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/index.js" afterPath="$PROJECT_DIR$/generators/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/Loading.js" afterPath="$PROJECT_DIR$/generators/app/templates/Loading.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/Modal.js" afterPath="$PROJECT_DIR$/generators/app/templates/Modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/Object.scss" afterPath="$PROJECT_DIR$/generators/app/templates/Object.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectContainer.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectState.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/ObjectView.js" afterPath="$PROJECT_DIR$/generators/app/templates/ObjectView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/OtherSnippets.js" afterPath="$PROJECT_DIR$/generators/app/templates/OtherSnippets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/_specs_/ObjectState.spec.js" afterPath="$PROJECT_DIR$/generators/app/templates/_specs_/ObjectState.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/generalProp.js" afterPath="$PROJECT_DIR$/generators/app/templates/generalProp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/generalPropSpecialFunc.js" afterPath="$PROJECT_DIR$/generators/app/templates/generalPropSpecialFunc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/bundle.js" afterPath="$PROJECT_DIR$/build/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/mutationRule.js" afterPath="$PROJECT_DIR$/src/client/components/mutationRule.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/queryGenerator.js" afterPath="$PROJECT_DIR$/src/client/components/queryGenerator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/scss/application.scss" afterPath="$PROJECT_DIR$/src/client/scss/application.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,11 +40,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="queryGenerator.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/components/queryGenerator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+            <state relative-caret-position="288">
+              <caret line="54" column="42" lean-forward="false" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -72,21 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/scss/application.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mutationRule.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/mutationRule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="60">
+              <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -132,6 +112,10 @@
       <find>eslint</find>
       <find>indent</find>
       <find>react-boo</find>
+      <find>createWateringProgram</find>
+      <find>generateMutationGraph</find>
+      <find>executeOption</find>
+      <find>loadFromStorage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,9 +136,10 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/client/index.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/src/client/components/mutationRule.js" />
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/src/client/scss/application.scss" />
+        <option value="$PROJECT_DIR$/src/client/components/mutationRule.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/client/components/queryGenerator.js" />
       </list>
     </option>
@@ -220,26 +205,6 @@
               <item name="redux-code-generator" type="b2602c69:ProjectViewProjectNode" />
               <item name="redux-code-generator" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-code-generator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-code-generator" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="client" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-code-generator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-code-generator" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="client" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="redux-code-generator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-code-generator" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="client" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scss" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -356,12 +321,12 @@
       <workItem from="1525398947420" duration="1190000" />
       <workItem from="1525401297673" duration="233000" />
       <workItem from="1525401539291" duration="872000" />
-      <workItem from="1525402721143" duration="6947000" />
+      <workItem from="1525402721143" duration="10617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16264000" />
+    <option name="totallyTimeSpent" value="19934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -599,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.eslintignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -662,14 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/mutationRule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.eslintrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -680,8 +630,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/scss/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="360">
+          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/mutationRule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -696,10 +654,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/queryGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        <state relative-caret-position="288">
+          <caret line="54" column="42" lean-forward="false" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

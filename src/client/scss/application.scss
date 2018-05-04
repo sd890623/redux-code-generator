@@ -21,3 +21,14 @@ td, th {
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+#first-row {
+  margin-bottom: 20px;
+}
+#second-row {
+  margin-bottom: 20px;
+  min-height: 300px;
+}
+#third-row {
+  margin-bottom: 20px;
+}
