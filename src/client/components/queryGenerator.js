@@ -13,7 +13,8 @@ class QueryGenerator extends Component {
       variableCompulsory: false,
 	    executeOption: 0,
 	    variables: [],
-      mutationKeyWord: ''
+      mutationKeyWord: '',
+      results: null
     });
     this.typeArray = [{ value: 0, label: 'String' }, { value: 1, label: 'Int' }, { value: 2, label: 'Boolean' }];
     this.optionArray = [{ value: 0, label: 'ApolloMutation' }, { value: 1, label: 'ApolloQuery' }];
@@ -35,11 +36,12 @@ class QueryGenerator extends Component {
   loadFromStorage() {
     if (window.localStorage.variables) {
       this.setState({ variables: JSON.parse(window.localStorage.variables) });
-      console.log(JSON.parse(window.localStorage.variables));
     }
   }
   execute() {
-
+    if (this.state.executeOption === 0) {
+      this.setState({ results: generateMutationGraph(this.state) });
+    }
   }
 
   submitVariable() {
@@ -84,6 +86,7 @@ class QueryGenerator extends Component {
             <Button bsStyle="primary" onClick={this.submitVariable}>Submit</Button>
           </FormGroup>
         </Form>
+
         <div className="row" id="second-row">
           <div className="col-sm-6">
             <h2 className="variables-title">Saved variables</h2>
@@ -96,9 +99,10 @@ class QueryGenerator extends Component {
           </div>
           <div className="col-sm-6">
             <h2 className="result-title">Results</h2>
-            {generateMutationGraph(this.state.variables)}
+            {this.state.results}
           </div>
         </div>
+
         <div className="row btn-set" id="third-row">
           <Form inline>
             <FormGroup className="m-r-5">
