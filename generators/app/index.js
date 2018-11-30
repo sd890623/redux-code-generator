@@ -40,7 +40,7 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'type',
       message: 'select type of variable',
-      choices: ['string', 'int', 'bool', 'func', 'non-ser-func'],
+      choices: ['string', 'int', 'bool', 'func', 'requestFinish', 'storeData'],
       default: 'string',
       when: function (prompt) {
         return (prompt.mode === 'generalProp');
@@ -104,7 +104,7 @@ module.exports = class extends Generator {
       case 'func':
         return '() =\> null';
       default:
-        return '\'\'';
+        return '{}';
     }
   }
 
@@ -192,9 +192,27 @@ module.exports = class extends Generator {
         break;
       }
       case 'generalProp': {
-        if (this.props.type === 'non-ser-func') {
+        if (this.props.type === 'requestFinish') {
           this.fs.copyTpl(
-            this.templatePath('generalPropSpecialFunc.js'),
+            this.templatePath('requestFinishFunc.js'),
+            this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
+            {
+              lowerCamel: this.convertName('lowerCamel'),
+              upperCamel: this.convertName('upperCamel'),
+              upperUnderscore: this.convertName('UPPERUnderscore'),
+              objectLowerCamel: this.convertName('lowerCamel', 'secondObject'),
+              objectUpperCamel: this.convertName('upperCamel', 'secondObject'),
+              objectUpperUnderscore: this.convertName('UPPERUnderscore', 'secondObject'),
+              objectLowerSlash: this.convertName('slash', 'secondObject'),
+              typeLower: this.convertName('lowerCamel', 'type'),
+              typeUpperCamel: this.convertName('upperCamel', 'type'),
+              defaultValue: this.findDefaultForType(this.props.type),
+              type: this.props.type
+            }
+          );
+        } else if (this.props.type === 'storeData') {
+          this.fs.copyTpl(
+            this.templatePath('storeData.js'),
             this.destinationPath('template/' + this.convertName('upperCamel') + '/' + 'OtherSnippets.js'),
             {
               lowerCamel: this.convertName('lowerCamel'),
