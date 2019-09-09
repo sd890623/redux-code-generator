@@ -36,4 +36,4 @@ export default connect(
 set<%= objectUpperCamel %>: PropTypes.func.isRequired
 
 <%= objectLowerCamel %>={this.props.<%= objectLowerCamel %>}
-set<%= objectUpperCamel %>={this.props.<%= objectUpperCamel %>}
+set<%= objectUpperCamel %>={this.props.set<%= objectUpperCamel %>}
