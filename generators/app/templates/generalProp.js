@@ -1,18 +1,28 @@
 // Template code for random prop display/change
 // In state.js
-const initialState = Map({
+interface <%= upperCamel %>State {
+  readonly <%= objectLowerCamel %>: <%= type === 'int' ? 'number' : type %>;
+}
+const initialState: <%= upperCamel %>State = {
   <%= objectLowerCamel %>: <%= defaultValue %>
-})
+};
 
 const SET_<%= objectUpperUnderscore %> = '<%= upperCamel %>State/SET_<%= objectUpperUnderscore %>';
 
-export function set<%= objectUpperCamel %>(value) {
+interface Set<%= objectUpperCamel %>Action {
+  type: typeof SET_<%= objectUpperUnderscore %>;
+  payload: <%= type === 'int' ? 'number' : type %>;
+}
+
+export function set<%= objectUpperCamel %>(value: <%= type === 'int' ? 'number' : type %>): Set<%= objectUpperCamel %>Action {
   return { type: SET_<%= objectUpperUnderscore %>, payload: value };
 }
 
 case SET_<%= objectUpperUnderscore %>:
-  return state
-    .set('<%= objectLowerCamel %>', action.payload);
+  return {
+    ...state,
+    <%= objectLowerCamel %>: action.payload
+  };
 
 // In container.js
 import { connect } from 'react-redux';
@@ -23,7 +33,7 @@ import {
 
 export default connect(
   state => ({
-    <%= objectLowerCamel %>: state.get('<%= lowerCamel %>').get('<%= objectLowerCamel %>')
+    <%= objectLowerCamel %>: state.get('<%= lowerCamel %>').<%= objectLowerCamel %>
   }),
   dispatch => ({
     set<%= objectUpperCamel %>(value) {
@@ -32,8 +42,10 @@ export default connect(
   })
 )(<%= upperCamel %>View);
 
-<%= objectLowerCamel %>: PropTypes.<%= type === 'int' ? 'number' : type %>.isRequired,
-set<%= objectUpperCamel %>: PropTypes.func.isRequired
+interface <%= upperCamel %>ViewProps {
+  <%= objectLowerCamel %>: <%= type === 'int' ? 'number' : type %>;
+  set<%= objectUpperCamel %>: (value: <%= type === 'int' ? 'number' : type %>) => void;
+};
 
 <%= objectLowerCamel %>={this.props.<%= objectLowerCamel %>}
 set<%= objectUpperCamel %>={this.props.set<%= objectUpperCamel %>}
